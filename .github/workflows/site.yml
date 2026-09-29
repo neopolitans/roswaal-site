@@ -1,0 +1,21 @@
+# Publishes roswaal.app.
+#
+# The build lives in Roswaal's own site workflow; this repository only lends it
+# a Pages site with the domain. Run it by hand when a release should go out:
+#
+#   gh workflow run site.yml --repo neopolitans/roswaal-site
+name: Site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  site:
+    uses: neopolitans/Roswaal/.github/workflows/pages.yml@main
+    with:
+      source: neopolitans/Roswaal
